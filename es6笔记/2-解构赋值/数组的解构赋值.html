@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //基本用法
+        //可以从数组中提取值，按照对应位置，对变量赋值
+        let [a, b, c] = [1, 2, 3];
+        console.log(a, b, c); //1,2,3
+
+        let arr = [1, 2, 3];
+        let [d, e, f] = arr;
+
+        let newarr = [4, 5];
+        let [g, h, i] = newarr;
+        console.log(d, e, f); //1,2,3
+        console.log(g, h, i); //4,5,undefined
+
+        let newarr1 = [1, [1, 2], 3];
+        let [x, y, z] = newarr1; //1 1 3 深拷贝
+
+        //报错
+        let [foo] = 1;
+        let [foo] = false;
+        let [foo] = NaN;
+        let [foo] = undefined;
+        let [foo] = null;
+        let [foo] = {};
+
+
+
+        //默认值
+        //解构赋值允许指定默认值
+        let [x = 1, y = x] = []; //x=1,y=2;
+
+        let [x = 1, y = x] = [1, 2] //x=2,y=2
+
+        //默认值可以引用解构赋值的其他变量，但该变量必须已经声明
+        let [x = y, y = 1] = []; //报错
+    </script>
+</body>
+
+</html>
